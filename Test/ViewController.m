@@ -83,12 +83,12 @@
 -(void)addAnimation
 {
     CAKeyframeAnimation *moveLayerAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    moveLayerAnimation.values = @[[NSValue valueWithCGPoint:CGPointMake(50, 150)],
-                                  [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width - self.movingLabel.layer.bounds.size.width/2, 150)]];
-    moveLayerAnimation.duration = 2.0;
-    moveLayerAnimation.autoreverses = YES;
+    moveLayerAnimation.values = @[[NSValue valueWithCGPoint:CGPointMake(-50, 150)],
+                                  [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width + 50, 150)]];
+    moveLayerAnimation.duration = 6.0;
+    moveLayerAnimation.autoreverses = NO;
     moveLayerAnimation.removedOnCompletion = NO;
-    moveLayerAnimation.repeatCount = INFINITY;
+    moveLayerAnimation.repeatCount = 1;//INFINITY;
     moveLayerAnimation.fillMode = kCAFillModeForwards;
     moveLayerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     [self.movingLabel.layer addAnimation:moveLayerAnimation forKey:@"moveAnimationKey"];
