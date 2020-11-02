@@ -16,6 +16,8 @@
 		9B5F5AA324A8769500D28D0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F5AA224A8769500D28D0C /* main.m */; };
 		9B5F5AAD24A8769600D28D0C /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F5AAC24A8769600D28D0C /* TestTests.m */; };
 		9B5F5AB824A8769600D28D0C /* TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F5AB724A8769600D28D0C /* TestUITests.m */; };
+		9B952FFC254FA79C00BCCC14 /* UITapGestureRecognizer+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B952FFA254FA79C00BCCC14 /* UITapGestureRecognizer+block.m */; };
+		9B953002254FA81000BCCC14 /* DanmuMessageAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B953001254FA81000BCCC14 /* DanmuMessageAnimationHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		9B5F5AB324A8769600D28D0C /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5F5AB724A8769600D28D0C /* TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUITests.m; sourceTree = "<group>"; };
 		9B5F5AB924A8769600D28D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B952FFA254FA79C00BCCC14 /* UITapGestureRecognizer+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITapGestureRecognizer+block.m"; sourceTree = "<group>"; };
+		9B952FFB254FA79C00BCCC14 /* UITapGestureRecognizer+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITapGestureRecognizer+block.h"; sourceTree = "<group>"; };
+		9B953000254FA81000BCCC14 /* DanmuMessageAnimationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanmuMessageAnimationHelper.h; sourceTree = "<group>"; };
+		9B953001254FA81000BCCC14 /* DanmuMessageAnimationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanmuMessageAnimationHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				9B5F5A9424A8769300D28D0C /* SceneDelegate.m */,
 				9B5F5A9624A8769300D28D0C /* ViewController.h */,
 				9B5F5A9724A8769300D28D0C /* ViewController.m */,
+				9B953000254FA81000BCCC14 /* DanmuMessageAnimationHelper.h */,
+				9B953001254FA81000BCCC14 /* DanmuMessageAnimationHelper.m */,
+				9B952FFB254FA79C00BCCC14 /* UITapGestureRecognizer+block.h */,
+				9B952FFA254FA79C00BCCC14 /* UITapGestureRecognizer+block.m */,
 				9B5F5A9924A8769300D28D0C /* Main.storyboard */,
 				9B5F5A9C24A8769500D28D0C /* Assets.xcassets */,
 				9B5F5A9E24A8769500D28D0C /* LaunchScreen.storyboard */,
@@ -267,7 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B953002254FA81000BCCC14 /* DanmuMessageAnimationHelper.m in Sources */,
 				9B5F5A9824A8769300D28D0C /* ViewController.m in Sources */,
+				9B952FFC254FA79C00BCCC14 /* UITapGestureRecognizer+block.m in Sources */,
 				9B5F5A9224A8769300D28D0C /* AppDelegate.m in Sources */,
 				9B5F5AA324A8769500D28D0C /* main.m in Sources */,
 				9B5F5A9524A8769300D28D0C /* SceneDelegate.m in Sources */,
