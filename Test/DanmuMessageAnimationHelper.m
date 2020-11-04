@@ -10,6 +10,7 @@
 #import "UITapGestureRecognizer+block.h"
 #import "CAKeyframeAnimation+AnimationKey.h"
 
+#define kOutOfScreenEdge 100 //弹幕左边距离屏幕边缘的距离
 
 @interface DanmakuLabel : UILabel
 
@@ -18,8 +19,6 @@
 @implementation DanmakuLabel
 
 @end
-
-
 
 @interface DanmuMessageAnimationHelper ()<CAAnimationDelegate>
 
@@ -105,11 +104,11 @@ static NSInteger a = 0;
         [self addAnimationWithLayer:layer];
     }
 }
--(void)addAnimationWithLayer:(CALayer *)layer
-{
+
+-(void)addAnimationWithLayer:(CALayer *)layer {
     CAKeyframeAnimation *moveLayerAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    moveLayerAnimation.values = @[[NSValue valueWithCGPoint:CGPointMake(-50, 100 + 30/2)],
-                                  [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width + 100, 100 + 30/2)]];
+    moveLayerAnimation.values = @[[NSValue valueWithCGPoint:CGPointMake(-50, 100 + layer.bounds.size.width/2)],
+                                  [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width + 100, 100 + layer.bounds.size.width/2)]];
     moveLayerAnimation.duration = 5.0;
     moveLayerAnimation.autoreverses = NO;
     moveLayerAnimation.removedOnCompletion = NO;
@@ -118,9 +117,8 @@ static NSInteger a = 0;
     moveLayerAnimation.fillMode = kCAFillModeForwards;
     moveLayerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
      
-    NSString *key = [self getKeyWithLayer:layer];//[NSString stringWithFormat:@"moveAnimationKey_%p",layer];
+    NSString *key = [self getKeyWithLayer:layer];
     [layer addAnimation:moveLayerAnimation forKey:key];
-//    layer.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 100, 100, 30);
 }
 
 -(void)stopAnimatingWithLayer:(CALayer *)layer {
@@ -137,35 +135,9 @@ static NSInteger a = 0;
     layer.timeOffset = pausedTime;
 }
 
-//- (UILabel *)movingLabel {
-//    if (!_movingLabel) {
-//        UILabel *movingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
-//        movingLabel.text = @"这是一个测试";
-//        movingLabel.font = [UIFont systemFontOfSize:14];
-//        movingLabel.textAlignment = NSTextAlignmentLeft;
-//        movingLabel.backgroundColor = UIColor.purpleColor;
-//        _movingLabel = movingLabel;
-//    }
-//    return _movingLabel;
-//}
-
 #pragma mark - CAAnimationDelegate
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-//    CAKeyframeAnimation *keyAnimation = (CAKeyframeAnimation *)anim;
-//    CAKeyframeAnimation *animation = [anim animation];
-//    self.container.layer.name
-//    self.container.layer
-//    NSLog(@"aaaaa 从屏幕删除的label的key %@",);
-//    [self.movingLabel removeFromSuperview];
-//    self.movingLabel = nil;
-    
-//    [self.container removeGestureRecognizer:self.tapGesture];
-//    self.tapGesture = nil;
-    
-//    [self.container.layer remove];
-    
     for (UIView *v in [self.container subviews]) {
         if ([v isKindOfClass:[DanmakuLabel class]]) {
             if (v.layer.presentationLayer.position.x == [UIScreen mainScreen].bounds.size.width + 100) {

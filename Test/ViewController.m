@@ -19,19 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    __weak typeof(self)weakSelf= self;
-    [[DanmuMessageAnimationHelper sharedInstance] danmakuMessageAnimationWithMessage:@"" inContainer:self.view tapBlock:^(CGPoint point) {
-        weakSelf.point = point;
-//        [weakSelf addMenu];
-    }];
 }
 
-- (void)addMenu {
+- (void)addMenuWihPoint:(CGPoint)point {
     UIMenuController *menu = [UIMenuController sharedMenuController];
     menu.arrowDirection = UIMenuControllerArrowDown;
     UIMenuItem *reportItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(reportAction:)];
     menu.menuItems = @[reportItem];
-    CGRect targetRect = CGRectMake(self.point.x, self.point.y - 50, 44, 44);
+    CGRect targetRect = CGRectMake(point.x, point.y - 10, 44, 44);
     [menu showMenuFromView:self.view rect:targetRect];
 }
 
@@ -42,8 +37,8 @@
 - (IBAction)didButtonClicked:(UIButton *)sender {
     __weak typeof(self)weakSelf= self;
     [[DanmuMessageAnimationHelper sharedInstance] danmakuMessageAnimationWithMessage:@"" inContainer:self.view tapBlock:^(CGPoint point) {
-        weakSelf.point = point;
-        [weakSelf addMenu];
+//        weakSelf.point = point;
+        [weakSelf addMenuWihPoint:point];
     }];
 }
 
